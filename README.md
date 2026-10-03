@@ -1,25 +1,23 @@
 
-<h1>Entra-ID monitoring with splunk</h1>
+<h1>Entra ID monitoring with splunk</h1>
 
 
 <h2>Description</h2>
 
-This demonstrates the implementation and management of user-risk policies in Microsoft Entra-ID. I should state that I do not have the Microsoft Entra-ID premium P2 licence to operate, however, this walk through will have captions which should clearly explain what is happening.
-
--The user-risk policy analyses the probability that user's account has been compromised by detecting risk events that are atypical of a user's behaviour.
-
--The sign-in risk policy evaluates the probability that a specific authentication event is unauthorised.
-
--Multi-factor registration policy provides a second layer to user sign-ins. A means to verify who you are more than just the username and password. 
+A walk-through of common attacks techniques targeting Entra ID identities and what they leave behind in logs and to hunt for them in a SIEM environment like Splunk.
 <br />
 
 
-<h2>Walk-through:</h2>
-<h3>Enable user-risk policy</h3>
+<h3>Password-based attacks</h3>
+Attackers acquire credentials from credential dumping sites, and many of these credentials are tied to active corporate accounts where users have reused passwords. Once attackers has a list of credentials they attempt to gain access without needing to touch the target's network perimeter. A successful login is identical to a legitimate one, no exploit, no malware, no network anomalies. So, to catch such attacks we have to hunt for them and analyse the logs.
+
+<b>Password spraying(T1110.003) :</b> Attackers use a small list of commonly used passwords against many different accounts, this is done so as not to trigger the lockout threshold.
+<br />
+<br />
 
 <p align="center">
 Sign-in to Microsoft Entra adimin centre and find <b>Identity Protection</b>: <br/>
-<img src="https://i.imgur.com/owTU6yx.png" height="80%" width="80%"/>
+<img src="https://i.imgur.com/bDSjgFz.png" height="80%" width="80%"/>
 <br />
 <br />
 Go to <b>user-risk policy</b>. Under <b>Assignments</b>, you can select from <b>All Users</b> or <b>Select individuals and groups</b>. You also have the option of excluding users from the policy:  <br/>
