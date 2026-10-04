@@ -36,18 +36,17 @@ successful logins by IP address--IP Address "38.165.231.218", supposed to be in 
 <img src="https://i.imgur.com/EBJshP3.png" height="80%" width="80%"/>
 <br />
 <br />
-Toggle to <b>Enabled</b> under <b>Policy encforcemnt</b> and then <b>Save</b>:  <br/>
-<img src="https://i.imgur.com/ExVEJfT.png" height="80%" width="80%"/>
+<h3>MFA Bypass</h3>
+MFA is the most impactful control against password based attacks. It provides a second layer in the verification of user identity beyond username and password. Unfortunately, attackers can, however unlikely, bypass MFA. <b>MFA Fatigue/Prompt Bombing (T1621)</b>--when attackers have valid credentials, they may initiate successive login attempts in order to bombard users with multiple MFA push notifications in the hope that their target will approve one, be it out of confusion, frustration, or the belief that the prompt is legitimate. 
 <br />
 <br />
-<h3>Enable sing-in risk policy</h3>
 <p align="center">
-Similar to <b>User risk</b>, under <b>Sign-in risk</b>, you can assign the policy to <b>All users</b> or to <b>individuals and groups</b>, and you can exclude users from the policy:  <br/>
-<img src="https://i.imgur.com/UPjHcUm.png" height="80%" width="80%"/>
+MFA failures by user:  <br/>
+<img src="https://i.imgur.com/fDOS1Xt.png" height="80%" width="80%"/>
 <br />
 <br />
-Under <b>sign-in risk</b>, select <b>Medium and above</b>--This minimizes False Positives:  <br/>
-<img src="https://i.imgur.com/lAFwqMe.png" height="80%" width="80%"/>
+successful sign-in activity :  <br/>
+<img src="https://i.imgur.com/k7fnYap.png" height="80%" width="80%"/>
 <br />
 <br />
 Under <b>Controls</b>, then <b>Acess</b>, select <b>Block access</b> then check the <b>Require multifactor authentication</b> box and then select <b>Done</b>:  <br/>
