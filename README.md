@@ -45,8 +45,10 @@ MFA failures by user:  <br/>
 <img src="https://i.imgur.com/fDOS1Xt.png" height="80%" width="80%"/>
 <br />
 <br />
-successful sign-in activity :  <br/>
+Successful sign-in activity :  <br/>
 <img src="https://i.imgur.com/k7fnYap.png" height="80%" width="80%"/>
+ <br />
+ A clear MFA bypass pattern was found against a single user account: "igor.bicalho@finegal.thm". The attacker generated repeated MFA failures from a suspicious IP before ultimately achieving a successful authentication, indicating the MFA control was circumvented. 10 MFA failures were recorded against user "igor.bicalho@finegal.thm", all from IP "149.102.234.27". This is consistent with MFA fatigue. All failures came from Brazil(BR), occurring roughly every 6 minutes between 12:36 and 13:24 on 2026-03-04, the regular cadence may suggest automated tooling, not normal attempt. 7 successful logins recorded, 6 originated from IP "94.0.24.134" in Denmark(DK), spanning 2026-03-02 to 2026-03-04, consistent with user normal pattern. The one other successful login originates from the same IP responsible for all 10 failures minutes earlier. There is also a geographic anomaly in that there was a successful login in Brazil where the user's established pattern were all in Denmark. Recommendations: revoke the user's active sessions and reset credentials.
 <br />
 <br />
 Under <b>Controls</b>, then <b>Acess</b>, select <b>Block access</b> then check the <b>Require multifactor authentication</b> box and then select <b>Done</b>:  <br/>
