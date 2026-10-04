@@ -51,22 +51,29 @@ Successful sign-in activity :  <br/>
  A clear MFA bypass pattern was found against a single user account: "igor.bicalho@finegal.thm". The attacker generated repeated MFA failures from a suspicious IP before ultimately achieving a successful authentication, indicating the MFA control was circumvented. 10 MFA failures were recorded against user "igor.bicalho@finegal.thm", all from IP "149.102.234.27". This is consistent with MFA fatigue. All failures came from Brazil(BR), occurring roughly every 6 minutes between 12:36 and 13:24 on 2026-03-04, the regular cadence may suggest automated tooling, not normal attempt. 7 successful logins recorded, 6 originated from IP "94.0.24.134" in Denmark(DK), spanning 2026-03-02 to 2026-03-04, consistent with user normal pattern. The one other successful login originates from the same IP responsible for all 10 failures minutes earlier. There is also a geographic anomaly in that there was a successful login in Brazil where the user's established pattern were all in Denmark. Recommendations: revoke the user's active sessions and reset credentials.
 <br />
 <br />
-Under <b>Controls</b>, then <b>Acess</b>, select <b>Block access</b> then check the <b>Require multifactor authentication</b> box and then select <b>Done</b>:  <br/>
-<img src="https://imgur.com/PNeKxs0.png" height="80%" width="80%"/>
+
+<h3>Privilege escalation and peristance</h3>
+Post-compromise activities--once an attacker gains access into they seek to give to themselves higher privileges (expand their access) and establish persistence (make sure they can keep it). 
 <br />
 <br />
-Toggle to <b>Enabled</b> under <b>Policy encforcemnt</b> and then <b>Save</b>:  <br/>
-<img src="https://i.imgur.com/NJL9C9Z.png" height="80%" width="80%"/>
-<br />
-<br />
-<h3>Enable Multifactor authentication registration policy</h3>
 <p align="center">
-Under <b>Assignments</b>, you can assign the policy to <b>All users</b> or to <b>individuals and groups</b>, and you can exclude users from the policy:  <br/>
-<img src="https://i.imgur.com/WVXtpUR.png" height="80%" width="80%"/>
+Creating Backdoor Accounts:  <br/>
+<img src="https://i.imgur.com/2HqNoCb.png" height="80%" width="80%"/>
 <br />
 <br />
-Toggle to <b>Enabled</b> under <b>Policy encforcemnt</b> and then <b>Save</b>:  <br/>
-<img src="https://i.imgur.com/QNVFfHw.png" height="80%" width="80%"/>
+Role Assignments:  <br/>
+<img src="https://i.imgur.com/qVrjYtn.png" height="80%" width="80%"/>
+<br />
+<br />
+Adding Alternate MFA Methods:  <br/>
+<img src="https://i.imgur.com/6Ld2S6G.png" height="80%" width="80%"/>
+<br />
+A soon as our attacker, IP 149.120.234.27, bypassed the MFA control, they created an account-"rafael.michael@finegalo.thm". This classic backdoor creation. They want to ensure that they can survive a password reset on "igor.bicalho@finegal.thm". The newly created account was then escalated to the roles of "Global Administrator" and "Tenant Admin". 5 minutes later, "rafael.michael@finegalo.thm" performs MFA seeding, registering their own MFA. This was a tenant compromise: Credential theft --> MFA bypass --> Backdoor account creation --> Global Admin privilege --> MFA seeding --> Persistent access. 
+Recommendations: disable both accounts at the centre of the compromise. Revoke all active sessions tenant-wide. Audit all role assignments made after 2026-03-04. Block the new MFA registration. Investigate possible data exiltration.
+
+<br />
+<br />
+
 </p>
 
 <!--
